@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/npm/l/docus.svg?style=flat&colorA=020420&colorB=EEEEEE)](https://npmjs.com/package/docus)
 
 ## 🚀 Quick Start
-
+some updates.
 Create a new documentation project in seconds:
 
 ```bash
