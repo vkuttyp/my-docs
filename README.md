@@ -8,6 +8,7 @@
 
 ## 🚀 Quick Start
 some updates.
+new update
 Create a new documentation project in seconds:
 
 ```bash
