@@ -16,7 +16,6 @@ export default defineNuxtConfig({
       name: 'Français',
     }],
   },
-  
   llms: {
     domain: 'https://docus.dev',
     title: 'Docus',
@@ -36,7 +35,7 @@ export default defineNuxtConfig({
       provider: 'github',
       owner: 'vkuttyp',
       repo: 'my-docs',
-      branch: 'main', 
+      branch: 'main',
       rootDir: 'docs',
     },
   },
