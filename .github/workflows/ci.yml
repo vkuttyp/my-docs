@@ -45,6 +45,9 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
+      - name: Install CLI dependencies
+        run: cd cli && bun install
+
       - name: Build CLI
         run: bun run build
         working-directory: ./cli
