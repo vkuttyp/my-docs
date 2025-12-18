@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches:
+    branches: 
       - main
   pull_request:
     branches:
@@ -22,36 +22,32 @@ jobs:
         node: [22]
 
     env:
-      NUXT_GITHUB_TOKEN: ${{ secrets.NUXT_GITHUB_TOKEN }}
+      NUXT_GITHUB_TOKEN: ${{ secrets. NUXT_GITHUB_TOKEN }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses:  actions/checkout@v5
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install node
-        uses: actions/setup-node@v5
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.node }}
-          cache: pnpm
+          bun-version: latest # or specify a version like "1.0.0"
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Prepare
-        run: pnpm run dev:prepare
+        run: bun run dev:prepare
 
       - name: Lint
-        run: pnpm run lint
+        run: bun run lint
 
       - name: Typecheck
-        run: pnpm run typecheck
+        run: bun run typecheck
 
       - name: Build CLI
-        run: pnpm run build
+        run: bun run build
         working-directory: ./cli
 
       - name: Publish CLI and Layer
-        run: npx pkg-pr-new publish --compact './cli' './layer'
+        run: bunx pkg-pr-new publish --compact './cli' './layer'
